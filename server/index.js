@@ -5,10 +5,13 @@ const cors = rquire('cors');
 const app = express();
 
 app.use(express.json());
-app.use(cors({
-    origin: "*",
-    methods: ["GET", "POST"],
-}));
+
+const corsOptions = {
+    origin : '*',
+    credential : 'true',
+};
+
+app.use(cors(corsOptions));
 
 const db = mysql.createConnection({
     user:'root',
